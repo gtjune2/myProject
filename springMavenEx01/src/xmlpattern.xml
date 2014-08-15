@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop.xsd
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<bean name="member" class="aop.xmlpattern.Member">
+	</bean>
+	<bean name="xmlAdvice" class="aop.xmlpattern.XmlAdvice">
+	</bean>
+	<aop:config>
+		<aop:aspect ref="xmlAdvice">
+			<!-- 리턴형은 아무거나 상관없고(*) aop.xmlpattern패키지안에(..) 있는 모든 메소드(*(..))에 적용 -->
+			<aop:pointcut expression="execution(public * aop.xmlpattern..*(..))" id="dodo"/>
+			<aop:around method="trace" pointcut-ref="dodo"/>
+			<aop:after-returning method="afterReturning" returning="obj" pointcut-ref="dodo"/>
+		</aop:aspect>
+	</aop:config>
+</beans>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="collectionService" class="CollectionGen.CollectionTestService">
+		<property name="member">
+			<list>
+				<value>조용근</value>
+				<value>강성조</value>
+				<value>이행엽</value>
+			</list>
+		</property>
+		<property name="memberMap">
+			<map>
+				<entry key="cho" value="조용근"></entry>
+				<entry key="kang" value="강성조"></entry>
+				<entry key="lee" value="이행엽"></entry>
+			</map>
+		</property>
+		<property name="memberProp">
+			<props>
+				<prop key="cho">조용근</prop>
+				<prop key="kang">강성조</prop>
+				<prop key="lee">이행엽</prop>
+			</props>
+		</property>
+		<property name="memberSet">
+			<!-- <set value-type="패키지경로.클래스이름"></set> -->
+			<set>
+				<value>조용근</value>
+				<value>강성조</value>
+				<value>이행엽</value>
+			</set>
+		</property>
+	</bean>
+	
+	<bean name="musicianService" class="autoDI.MusicianService" autowire="byName">
+	</bean>
+	<bean name="musicians" class="autoDI.Musicians">
+		<constructor-arg>
+			<list>
+				<value>조용근</value>
+				<value>강성조</value>
+				<value>이행엽</value>
+			</list>
+		</constructor-arg>
+		<property name="song" ref="song"></property>
+	</bean>
+	
+	<bean name="song" class="autoDI.Song">
+	</bean>
+	
+	<bean name="musicianChild" parent="musicianService"></bean>
+	
+</beans>

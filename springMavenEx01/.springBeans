@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beansProjectDescription>
+	<version>1</version>
+	<pluginVersion><![CDATA[3.6.0.201407080615-RELEASE]]></pluginVersion>
+	<configSuffixes>
+		<configSuffix><![CDATA[xml]]></configSuffix>
+	</configSuffixes>
+	<enableImports><![CDATA[false]]></enableImports>
+	<configs>
+		<config>src/appContext.xml</config>
+		<config>src/ScopedProxy.xml</config>
+		<config>src/BeanLifeCycle.xml</config>
+		<config>src/ConnectionContainer.xml</config>
+		<config>src/Connection.xml</config>
+		<config>src/sqlMapConfig.xml</config>
+		<config>src/MybatisSql.xml</config>
+	</configs>
+	<autoconfigs>
+	</autoconfigs>
+	<configSets>
+	</configSets>
+</beansProjectDescription>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd" >
+
+	<bean name="memberPlayer" class="member.MemberService">
+		<constructor-arg>
+			<ref bean="iPlayer"/>
+		</constructor-arg>
+	</bean>
+	<bean name="memberCheerLeader" class="member.MemberService">
+		<constructor-arg>
+			<ref bean="iCheerLeader"/>
+		</constructor-arg>
+	</bean>
+	
+	<bean name="iPlayer" class="member.Player">
+	</bean>
+	<bean name="iCheerLeader" class="member.CheerLeader">
+	</bean>
+	
+	
+	<!-- <bean name="memberService" class="member.MemberService">
+		<constructor-arg>
+			<ref bean="iMember"/>
+		</constructor-arg>
+	</bean>
+	<bean name="iMember" class="member.IMember"> // 생성자 에러
+	</bean> -->
+</beans>
